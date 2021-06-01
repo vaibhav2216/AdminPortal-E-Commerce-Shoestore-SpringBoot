@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header" />
+
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	 <div class="container">
+        <div class="table-responsive">
+            <table id="shoeListTable" class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                    	
+                        <th>Title</th>
+                        <th>Brand</th>
+                        <th>gType</th>
+                        <th>category</th>
+                        <th>Available size;</th>
+                        <th>List Price</th>
+                        <th>Our Price</th> 
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>   
+                    <tr data-th-each="shoe: ${shoeList}">
+                    	
+                    	<td><a th:href="@{/shoe/shoeinfo(id=${shoe.id})}"><span th:text="${shoe.title}"></span></a></td>
+                        <td th:text="${shoe.brand}"></td>
+                        <td th:text="${shoe.gtype}"></td>
+                        <td th:text="${shoe.category}"></td>
+                        <td th:text="${shoe.availablesize}"></td>
+                        <td th:text="${shoe.listPrice}"></td>
+                        <td th:text="${shoe.ourPrice}"></td>
+                        <td>
+                        
+                        	<input hidden="hidden" name="id" th:value="${shoe.id}">
+                        	<button th:id="'oneShoe-'+${shoe.id}" class="btn btn-danger delete-shoe" type="submit" value="delete"><span class="fa fa-times"></span>Delete</button>
+                        	
+                        
+                        </td>
+                        	
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+    
+    </div>
+
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

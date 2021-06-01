@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header" />
+<style>
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Lato", sans-serif;
+}
+
+body, html {
+	height: 100%;
+	color: #777;
+	line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+	background-image: url('https://s3.amazonaws.com/thumbnails.venngage.com/template/a3a62175-0e0c-4092-925c-ee74674f7159.png');
+	min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+	background-image: url("https://thumbs.dreamstime.com/z/shoe-store-milan-23489263.jpg");
+	min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+	background-image: url("/w3images/parallax3.jpg");
+	min-height: 400px;
+}
+
+.w3-wide {
+	letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+	cursor: pointer;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+		background-attachment: scroll;
+		min-height: 400px;
+	}
+}
+</style>
+<body>
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+		<!-- First Parallax Image with Logo Text -->
+		<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+			<div class="w3-display-middle" style="white-space: nowrap;">
+				<!-- <span
+					class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+					
+				</span> -->
+			</div>
+		</div>
+
+		<!-- Container (About Section) -->
+		<div class="w3-content w3-container w3-padding-64" id="about">
+			<h3 class="w3-center">ABOUT Website</h3>
+			<p class="w3-center">
+				<em>Metro Shoe Store</em>
+			</p>
+			<p>The aim to design a database management system is to be able
+				to keep the track of shoes,their brand,their availability,their
+				price and it also includes information about the employees in the
+				store .The system should be strong enough to withstand regressive
+				yearly operations under which the database is maintained and cleared
+				over a certain time span.</p>
+			<div class="w3-row">
+				<div class="w3-col m6 w3-center w3-padding-large">
+					
+					<br> <img src="https://content3.jdmagicbox.com/comp/nanded/i1/9999p2462.2462.140401120203.m4i1/catalogue/metro-shoes-nanded-ho-nanded-shoe-dealers-4e1ijf4.jpg"
+						class="w3-round w3-image w3-opacity w3-hover-opacity-off"
+						alt="Photo of Me" width="500" height="333">
+				</div>
+
+				<div class="w3-col m6 w3-hide-small w3-padding-large">
+				<p>
+					Welcome to my website mainly this is the adminportal which will be accessed by admin only so here 
+					admin can add pair of shoes he/she can also update the pair of shoes here.If you are stock is empty or
+					you want to take the sown the product you can simply delete that product</p>
+				</div>
+			</div>
+			<p class="w3-large w3-center w3-padding-16">Most Purchased brands</p>
+			<p class="w3-wide">
+				<i class="fa fa-camera"></i>Adidas
+			</p>
+			<div class="w3-light-grey">
+				<div class="w3-container w3-padding-small w3-dark-grey w3-center"
+					style="width: 90%">90%</div>
+			</div>
+			<p class="w3-wide">
+				<i class="fa fa-laptop"></i>Nike
+			</p>
+			<div class="w3-light-grey">
+				<div class="w3-container w3-padding-small w3-dark-grey w3-center"
+					style="width: 85%">85%</div>
+			</div>
+			<p class="w3-wide">
+				<i class="fa fa-photo"></i>Levi
+			</p>
+			<div class="w3-light-grey">
+				<div class="w3-container w3-padding-small w3-dark-grey w3-center"
+					style="width: 75%">65%</div>
+			</div>
+		</div>
+
+		<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+			<div class="w3-quarter w3-section">
+				<span class="w3-xlarge">14+</span><br> Partners
+			</div>
+			<div class="w3-quarter w3-section">
+				<span class="w3-xlarge">10+</span><br> Sponsors
+			</div>
+			<div class="w3-quarter w3-section">
+				<span class="w3-xlarge">89+</span><br> Happy Clients
+			</div>
+			<div class="w3-quarter w3-section">
+				<span class="w3-xlarge">150+</span><br> Reviews
+			</div>
+		</div>
+
+		<!-- Second Parallax Image with Portfolio Text -->
+		<div class="bgimg-2 w3-display-container w3-opacity-min">
+			<div class="w3-display-middle">
+				<span class="w3-xxlarge w3-text-white w3-wide"></span>
+			</div>
+		</div>
+
+		<!-- Container (Portfolio Section) -->
+		<div class="w3-content w3-container w3-padding-64" id="portfolio">
+			<h3 class="w3-center">Available Brands</h3>
+			<p class="w3-center">
+				<em>Here are some of our latest brands 
+				</em>
+			</p>
+			<br>
+
+			<!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+			<div class="w3-row-padding w3-center">
+				<div class="w3-col m3">
+					<img th:src="@{/images/adidas.png}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity"
+						alt="The mist over the mountains">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/bata.jpg}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity"
+						alt="Coffee beans">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/gucci.png}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity"
+						alt="Bear closeup">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/jdi.jpg}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
+				</div>
+			</div>
+
+			<div class="w3-row-padding w3-center w3-section">
+				<div class="w3-col m3">
+					<img th:src="@{/images/levi.png}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/nike.jpg}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity"
+						alt="My beloved typewriter">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/puma.png}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity"
+						alt="Empty ghost train">
+				</div>
+
+				<div class="w3-col m3">
+					<img th:src="@{/images/vans.jpg}" style="width: 100%"
+						onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
+				</div>
+			</div>
+		</div>
+	<a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+		
+	
+
+
+	</div>
+
+	<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>
